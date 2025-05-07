@@ -1,7 +1,15 @@
 import { PaddleContextProvider } from "@/store/paddle.store";
 import "@/styles/global.css";
+import getTitle from "@/utils/get-title";
 
 import { createSignal, type FlowProps } from "solid-js";
+
+import { useMetadata } from "vike-metadata-solid";
+
+useMetadata.setGlobalDefaults({
+  title: getTitle("Home"),
+  description: "Demo showcasing Vike and Solid.",
+});
 
 export default function RootLayout(props: FlowProps) {
   return (

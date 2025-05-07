@@ -1,13 +1,22 @@
 import { usePaddleContext } from "@/store/paddle.store";
 import { CheckoutOpenLineItem } from "@paddle/paddle-js";
 
+import { useMetadata } from "vike-metadata-solid";
+
 export default function Page() {
+  useMetadata({});
+
   const [items, setItems] = createStore<CheckoutOpenLineItem[]>([]);
 
   const products = [
     { id: "pri_01j30gpbandt6x1hh1jf881wdy", name: "Watercolor Brush (Basic)", price: 4 },
     { id: "pri_01j30gqm006t8qperkn0h3v1h7", name: "Watercolor Brush (Profesional Set)", price: 14 },
-    { id: "pri_01j30gx2zmeban9z2tr265k3d7", name: "Watercolor Co Membership", price: 4 },
+    {
+      id: "pri_01j30gx2zmeban9z2tr265k3d7",
+      name: "Watercolor Co Membership",
+      price: 4,
+      recurring: true,
+    },
   ];
 
   const { openCheckout } = usePaddleContext();
@@ -43,6 +52,7 @@ export default function Page() {
                 name={product.name}
                 price={product.price}
                 onClick={() => toggleAddItem(product.id, 1)}
+                recurring={product.recurring ?? false}
               />
             )}
           </For>
@@ -102,25 +112,27 @@ type ProductCardProps = {
   onClick?: () => void;
 };
 
-function ProductCard(props: VoidProps<ProductCardProps>) {
-  const defaultProps = mergeProps(
+function ProductCard(rawProps: VoidProps<ProductCardProps>) {
+  const props = mergeProps(
     {
-      // Add default values here.
+      recurring: false,
     },
-    props
+    rawProps
   );
 
   return (
     <button
-      class={`p-2 h-44 w-44 border rounded-lg flex flex-col gap-y-3 items-center justify-center active:scale-95 transition ${defaultProps.active ? "bg-gray-100" : "bg-white"}`}
-      onClick={props.onClick}
+      class={`select-none p-2 h-44 w-44 border rounded-lg flex flex-col gap-y-3 items-center justify-center active:scale-95 transition ${props.active ? "bg-gray-100" : "bg-white"}`}
+      onClick={rawProps.onClick}
     >
-      <span>{defaultProps.name}</span>
+      <span>{props.name}</span>
 
       <span class="text-sm text-gray-500">
-        USD {defaultProps.price}
-        {defaultProps.recurring && <span class="text-xs text-gray-500">/month</span>}
+        USD {props.price}
+        {props.recurring && <span class="text-xs text-gray-500">/month</span>}
       </span>
+
+      <span class="text-sm text-orange-400">{props.recurring ? "Subscription" : "One-Time"}</span>
     </button>
   );
 }
