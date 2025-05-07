@@ -2,6 +2,11 @@
 
 Comparing the different SaaS Payment Providers available in the Philippines.
 
+> [!NOTE]
+> Not yet finished.
+
+Todos:
+
 - [ ] Creem
 - [x] Paddle
 - [ ] LemonSqueezy
@@ -26,12 +31,12 @@ Comparing the different SaaS Payment Providers available in the Philippines.
   - Platform Registration
   - Code Integration (Packages Installed, Environment Variables, Backend Implementation, Frontend Implementation)
 - **Tech Stack**: SolidJS + Hono + Vike
-- **Platform Activation** is not covered.
+- **Platform Activation** - Verification process and other legal stuff for your account to start receiving payments is not covered.
 
 ## Definition of Terms
 
-- One-time Payment or Single payment.
-- Subscription
+- One-time Payment or Single payment - a product you buy for 1 time.
+- Subscription - Recurring payments on the same product.
 - Merchant of Record (MoR) - The entity responsible for managing the payment process on behalf of the merchant. Cross-border tax compliance is easy but usually in exchange for a higher fee, but essentially paying for convenience.
 - Tax Category (based on Creem)
   - Digital Goods or services
@@ -41,11 +46,11 @@ Comparing the different SaaS Payment Providers available in the Philippines.
 ## Learnings
 
 - **Common things** every payment provider have:
-  - Platform Registration (on their webapp)
+  - 1. Platform Registration (on their webapp)
     - Make a product
     - Set a price
-  - Environment Variables
+  - 2. Environment Variables
     - Usually just an **API Key**
-  - Backend Endpoints
-    - `GET /checkout` - Redirect to Checkout URL
-    - `GET /success` - After completing the transaction, it should go back to our site.
+  - 3. Backend Endpoints
+    - `GET /checkout` - Redirect to Checkout URL.
+    - `GET /success` - After completing the transaction, it should go back to our site. That's when we can process it.

@@ -50,6 +50,9 @@ Code-related:
 
 - [x] Install @paddle/paddle-js
 - [x] Make a context provider surrounding Paddle.
+  - Initialize.
+  - Checkout function.
+- [x] Create your product page.
 
 ## Resources
 
