@@ -1,0 +1,41 @@
+{
+  "name": "my-app",
+  "version": "0.0.1",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "bunx --bun vite --host",
+    "build": "vite build",
+    "preview": "NODE_ENV=production bun run ./server.ts",
+    "preview-static": "vite preview",
+    "lint": "prettier --check .; eslint .; tsc --noEmit;",
+    "lint:fix": "prettier --write .; eslint --fix .; tsc --noEmit;",
+    "format": "prettier --write .",
+    "update": "bunx npm-check-updates --interactive --format group"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@hono/vite-dev-server": "^0.19.1",
+    "@types/bun": "^1.2.15",
+    "@typescript-eslint/eslint-plugin": "^8.33.0",
+    "@typescript-eslint/parser": "^8.33.0",
+    "eslint": "^9.27.0",
+    "eslint-plugin-solid": "^0.14.5",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.6.0",
+    "@lemonsqueezy/lemonsqueezy.js": "^4.0.0",
+    "@tailwindcss/vite": "^4.1.8",
+    "hono": "^4.7.10",
+    "solid-js": "^1.9.7",
+    "tailwindcss": "^4.1.8",
+    "vike": "0.4.230",
+    "vike-metadata-solid": "^1.0.4",
+    "vike-solid": "^0.7.10",
+    "zod": "^3.25.36"
+  }
+}
