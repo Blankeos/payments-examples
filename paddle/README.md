@@ -57,3 +57,7 @@ PUBLIC_ENV__PADDLE_CLIENT_SIDE_TOKEN="test_1234a123a123a123a123a123a12"
 - https://github.com/PaddleHQ/paddle-js-wrapper
 - https://developer.paddle.com/build/checkout/build-overlay-checkout
 - https://www.youtube.com/watch?v=r7uf_u7tI7k (Super outdated)
+
+## Notes
+
+limitations I noticed: I cannot create a checkout with multiple product ids.

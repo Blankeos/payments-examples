@@ -9,12 +9,12 @@ export default function Page() {
   const [items, setItems] = createStore<CheckoutOpenLineItem[]>([]);
 
   const products = [
-    { id: "pri_01j30gpbandt6x1hh1jf881wdy", name: "Watercolor Brush (Basic)", price: 4 },
-    { id: "pri_01j30gqm006t8qperkn0h3v1h7", name: "Watercolor Brush (Profesional Set)", price: 14 },
+    { id: "pri_01j30gpbandt6x1hh1jf881wdy", name: "Watercolor Brush (Basic)", price: 10 },
+    { id: "pri_01j30gqm006t8qperkn0h3v1h7", name: "Watercolor Brush (Profesional Set)", price: 20 },
     {
       id: "pri_01j30gx2zmeban9z2tr265k3d7",
       name: "Watercolor Co Membership",
-      price: 4,
+      price: 7,
       recurring: true,
     },
   ];
